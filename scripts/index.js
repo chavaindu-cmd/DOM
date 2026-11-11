@@ -61,3 +61,31 @@ function gameOver()
 
 addWordToDOM();
 const timer = setInterval(updateTime,3000);
+
+const settingButton = document.getElementById("settings-btn");
+const settings = document.getElementById("settings");
+settingButton.addEventListener("click", function()
+{
+    settings.classList.toggle("hide");
+});
+
+const settingsForm = document.getElementById("settings-form");
+const difficulty = document.getElementById("difficulty");
+settingsForm.addEventListener("change", function(){
+    if(difficulty.value === "easy")
+    {
+        time = 10;    
+    }
+    else if (difficulty.value === "medium")
+    {
+        time = 7;
+    }
+    else if (difficulty.value === "hard")
+    {
+        time = 5;
+    }
+
+    document.getElementById("time").innerText = time + "s";
+
+});
+
